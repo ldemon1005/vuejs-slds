@@ -11,6 +11,7 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit"
   },
+  "heroku-postinstall": "npm install && npm run build",
   "dependencies": {
     "@salesforce-ux/design-system": "^2.7.5",
     "jsforce": "^1.9.3",
