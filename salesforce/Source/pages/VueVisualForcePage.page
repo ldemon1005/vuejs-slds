@@ -1,0 +1,58 @@
+<apex:page sidebar="false" >
+    <h1>
+        Test Visualforce Page - VueVisualForcepage.vfp
+    </h1>
+    
+    <apex:includeLightning />
+    
+    <div class="container">
+        <div id="lightning" />        
+    </div>
+    
+    
+    <style>
+        .container {
+        position: relative;
+        overflow: hidden;
+        padding-top: 56.25%;
+        }
+        .container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        }
+        .lightningContainer{
+        position: static;
+        }
+    </style>
+    
+    <script>
+    function addVueComponent(){
+        console.log('[addVueComponent] Start...');
+        try{
+            $Lightning.use("c:VueLightningApplication", function() {
+                console.log('Creating Component...');
+                try{
+                    $Lightning.createComponent("c:VueLightningComponent",
+                                               {  },
+                                               "lightning",
+                                               function(cmp) {
+                                                   // do some stuff
+                                               });
+                }catch(error){
+                    console.log(error);
+                }
+            });
+            
+        }catch(error){
+            console.log(error);
+        }
+    }
+    
+    addVueComponent();
+    
+    </script>
+</apex:page>
