@@ -7,7 +7,10 @@ const _accounts = [
 ];
 
 var jsforce = require('jsforce');
-var conn = new jsforce.Connection();
+var conn = new jsforce.Connection({
+  // you can change loginUrl to connect to sandbox or prerelease env.
+   loginUrl : 'https://test.salesforce.com'
+});
 conn.login('admin2019@vnpost.com.vn.full', 'cmcts@2020vnpost', function(err, res) {
   if (err) { return console.error(err); }
   conn.query('SELECT Id, Name, Type, numberOfEmployees FROM Account', function(err, res) {
